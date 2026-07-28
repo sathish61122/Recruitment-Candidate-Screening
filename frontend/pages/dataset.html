@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dataset Info</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<h1>Dataset Overview</h1>
+
+<div class="grid">
+
+  <!-- Overview Card -->
+  <div class="card">
+    <h3>Total Records</h3>
+    <p id="records">Loading...</p>
+  </div>
+
+  <div class="card">
+    <h3>Number of Features</h3>
+    <p id="features">Loading...</p>
+  </div>
+
+  <div class="card">
+    <h3>Missing Values</h3>
+    <p id="missing">Loading...</p>
+  </div>
+
+</div>
+
+<!-- Sample Table -->
+<div class="card">
+  <h2>Sample Data</h2>
+  <table id="dataTable">
+    <thead>
+      <tr>
+        <th>Experience</th>
+        <th>Test Score</th>
+        <th>Interview Score</th>
+        <th>Selected</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<!-- Chart -->
+<div class="card">
+  <h2>Data Visualization</h2>
+  <canvas id="chart"></canvas>
+</div>
+
+<script src="../js/dataset.js"></script>
+
+</body>
+</html>
