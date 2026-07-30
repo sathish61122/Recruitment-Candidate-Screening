@@ -1,44 +1,38 @@
 async function predict() {
+    console.log("Button clicked");
+
+    const age = document.getElementById("age").value;
     const experience = document.getElementById("experience").value;
-    const test = document.getElementById("test").value;
-    const interview = document.getElementById("interview").value;
-
-    // Basic validation
-    if (!experience || !test || !interview) {
-        alert("Please fill all fields");
-        return;
-    }
-
-    // Loading state
-    document.getElementById("result").innerHTML = "Predicting...";
+    const education = document.getElementById("education").value;
+    const skills = document.getElementById("skills").value;
 
     try {
-        const response = await fetch("http://recruitment-candidate-screening.onrender.com/predict"), {
+        const res = await fetch("https://recruitment-candidate-screening.onrender.com/predict", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                experience: parseFloat(experience),
-                test_score: parseFloat(test),
-                interview_score: parseFloat(interview)
+                age: Number(age),
+                experience: Number(experience),
+                education: Number(education),
+                skills: Number(skills)
             })
         });
 
-        const data = await response.json();
+        const data = await res.json();
+        console.log(data);
 
-        // Show result
-        document.getElementById("result").innerHTML = `
-            <div class="result-card">
-                <h3>${data.recommendation}</h3>
-                <p>Confidence: ${data.confidence}%</p>
-            </div>
-        `;
+        document.getElementById("resultText").innerText =
+            "Prediction: " + data.prediction;
+
+        document.getElementById("confidenceText").innerText =
+            "Confidence: " + (data.confidence * 100).toFixed(2) + "%";
+
+        document.getElementById("resultCard").classList.remove("hidden");
+
     } catch (error) {
-        document.getElementById("result").innerHTML = "Error connecting to server";
+        console.error(error);
+        alert("API error");
     }
-if (!data.experience || !data.test_score || !data.interview_score) {
-    showToast("Please fill all fields ⚠️");
-    return;
-}
 }
