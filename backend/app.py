@@ -1,44 +1,51 @@
-from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI
 from pydantic import BaseModel
 import joblib
 import numpy as np
 
+# 🔥 CORS (VERY IMPORTANT for frontend connection)
+from fastapi.middleware.cors import CORSMiddleware
+
 app = FastAPI()
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # allow all (for development)
+    allow_origins=["*"],   # after deployment you can restrict
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Load model
+# ✅ Load ML model
 model = joblib.load("model/model.pkl")
 
+# ✅ Input schema (must match your dataset features)
 class Candidate(BaseModel):
     experience: float
     test_score: float
     interview_score: float
 
+# ✅ Test route
 @app.get("/")
 def home():
-    return {"message": "API working"}
+    return {"message": "Recruitment AI API running"}
 
+# ✅ Prediction route
 @app.post("/predict")
 def predict(data: Candidate):
-    features = np.array([[data.experience, data.test_score, data.interview_score]])
-    
-    prediction = model.predict(features)[0]
-    
-    # If error comes here, temporarily use fixed value
     try:
-        prob = model.predict_proba(features)[0].max()
-    except:
-        prob = 0.85
+        # Convert input to model format
+        features = np.array([[data.experience, data.test_score, data.interview_score]])
 
-    return {
-        "prediction": int(prediction),
-        "confidence": round(prob * 100, 2),
-        "recommendation": "Hire" if prediction == 1 else "Reject"
-    }
+        # Prediction
+        prediction = model.predict(features)[0]
+        probability = model.predict_proba(features)[0].max()
+
+        return {
+            "prediction": int(prediction),
+            "confidence": round(probability * 100, 2),
+            "recommendation": "Hire" if prediction == 1 else "Reject"
+        }
+
+    except Exception as e:
+        return {"error": str(e)}
