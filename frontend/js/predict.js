@@ -7,7 +7,7 @@ async function predict() {
     const skills = document.getElementById("skills").value;
 
     try {
-        const res = await fetch("https://recruitment-candidate-screening.onrender.com/predict", {
+        const res = await fetch("https://recruitment-candidate-screening.onrender.com/predict"), {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
