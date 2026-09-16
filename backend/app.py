@@ -2,8 +2,6 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import joblib
 import numpy as np
-
-# 🔥 CORS (VERY IMPORTANT for frontend connection)
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
