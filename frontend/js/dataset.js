@@ -6,7 +6,6 @@ const data = [
   {experience: 0.5, test: 50, interview: 55, selected: 0}
 ];
 
-// Overview
 document.getElementById("records").innerText = data.length;
 document.getElementById("features").innerText = 4;
 document.getElementById("missing").innerText = 0;
