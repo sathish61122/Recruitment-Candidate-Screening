@@ -22,6 +22,7 @@ data.forEach(row => {
     <td>${row.selected}</td>
   `;
 
+  
   table.appendChild(tr);
 });
 const selectedCount = data.filter(d => d.selected === 1).length;
