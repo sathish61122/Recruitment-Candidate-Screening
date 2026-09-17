@@ -10,7 +10,6 @@ document.getElementById("records").innerText = data.length;
 document.getElementById("features").innerText = 4;
 document.getElementById("missing").innerText = 0;
 
-// Table
 const table = document.querySelector("#dataTable tbody");
 
 data.forEach(row => {
