@@ -1,4 +1,4 @@
-// Sample data (later you can connect backend)
+
 const data = [
   {experience: 1, test: 60, interview: 65, selected: 0},
   {experience: 3, test: 80, interview: 78, selected: 1},
