@@ -22,18 +22,15 @@ class Candidate(BaseModel):
 @app.get("/")
 def home():
     return {"message": "Recruitment AI API running"}
-
 # ✅ Prediction route
 @app.post("/predict")
 def predict(data: Candidate):
     try:
         # Convert input to model format
         features = np.array([[data.experience, data.test_score, data.interview_score]])
-
         # Prediction
         prediction = model.predict(features)[0]
         probability = model.predict_proba(features)[0].max()
-
         return {
             "prediction": int(prediction),
             "confidence": round(probability * 100, 2),
