@@ -1,11 +1,9 @@
 async function predict() {
     console.log("Button clicked");
-
     const age = document.getElementById("age").value;
     const experience = document.getElementById("experience").value;
     const education = document.getElementById("education").value;
     const skills = document.getElementById("skills").value;
-
     try {
         const res = await fetch("https://recruitment-candidate-screening.onrender.com/predict"), {
             method: "POST",
@@ -19,7 +17,6 @@ async function predict() {
                 skills: Number(skills)
             })
         });
-
         const data = await res.json();
         console.log(data);
 
