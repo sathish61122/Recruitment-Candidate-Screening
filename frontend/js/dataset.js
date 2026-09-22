@@ -1,20 +1,15 @@
-
 const data = [
   {experience: 1, test: 60, interview: 65, selected: 0},
   {experience: 3, test: 80, interview: 78, selected: 1},
   {experience: 2, test: 70, interview: 72, selected: 1},
   {experience: 0.5, test: 50, interview: 55, selected: 0}
 ];
-
 document.getElementById("records").innerText = data.length;
 document.getElementById("features").innerText = 4;
 document.getElementById("missing").innerText = 0;
-
 const table = document.querySelector("#dataTable tbody");
-
 data.forEach(row => {
   const tr = document.createElement("tr");
-
   tr.innerHTML = `
     <td>${row.experience}</td>
     <td>${row.test}</td>
