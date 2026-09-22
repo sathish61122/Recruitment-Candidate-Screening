@@ -3,9 +3,7 @@ from pydantic import BaseModel
 import joblib
 import numpy as np
 from fastapi.middleware.cors import CORSMiddleware
-
 app = FastAPI()
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],   # after deployment you can restrict
@@ -13,16 +11,13 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 # ✅ Load ML model
 model = joblib.load("model/model.pkl")
-
 # ✅ Input schema (must match your dataset features)
 class Candidate(BaseModel):
     experience: float
     test_score: float
     interview_score: float
-
 # ✅ Test route
 @app.get("/")
 def home():
