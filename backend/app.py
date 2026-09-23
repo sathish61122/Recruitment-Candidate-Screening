@@ -11,7 +11,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 # ✅ Load ML model
 model = joblib.load("model/model.pkl")
 # ✅ Input schema (must match your dataset features)
