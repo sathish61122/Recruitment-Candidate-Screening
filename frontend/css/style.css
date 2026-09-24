@@ -24,33 +24,27 @@ th, td {
   padding: 10px;
   text-align: center;
 }
-
 tr:hover {
   background: rgba(255,255,255,0.05);
 }
-
 /* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
   padding: 20px;
 }
-
 .nav-btn {
   color: white;
   text-decoration: none;
 }
-
 /* Hero */
 .hero {
   text-align: center;
   margin-top: 100px;
 }
-
 .hero h1 {
   font-size: 40px;
 }
-
 .hero p {
   color: #94a3b8;
 }
