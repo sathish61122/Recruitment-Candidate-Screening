@@ -51,16 +51,13 @@ tr:hover {
 button {
   transition: all 0.3s ease;
 }
-
 .button:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(99,102,241,0.4);
 }
-
 button:active {
   transform: scale(0.97);
 }
-
 .btn:hover {
   background: #818cf8;
 }
@@ -68,8 +65,6 @@ button:active {
   box-shadow: 0 0 10px rgba(99,102,241,0.6);
   transition: 0.2s;
 }
-
-/* Card */
 .card {
   width: 300px;
   margin: 100px auto;
@@ -89,12 +84,9 @@ button:active {
   opacity: 0;
   transition: 0.3s;
 }
-
 .toast.show {
   opacity: 1;
 }
-
-/* Inputs */
 input {
   width: 100%;
   margin: 10px 0;
