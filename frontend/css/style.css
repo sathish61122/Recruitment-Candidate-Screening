@@ -7,7 +7,6 @@ body {
 body {
   animation: fadePage 0.5s ease;
 }
-
 @keyframes fadePage {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -21,7 +20,6 @@ table {
   width: 100%;
   border-collapse: collapse;
 }
-
 th, td {
   padding: 10px;
   text-align: center;
