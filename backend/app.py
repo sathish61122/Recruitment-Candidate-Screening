@@ -4,6 +4,7 @@ import joblib
 import numpy as np
 from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],   # after deployment you can restrict
@@ -11,6 +12,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 # ✅ Load ML model
 model = joblib.load("model/model.pkl")
 # ✅ Input schema (must match your dataset features)
