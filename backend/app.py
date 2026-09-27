@@ -4,7 +4,6 @@ import joblib
 import numpy as np
 from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],   
@@ -12,7 +11,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 # ✅ Load ML model
 model = joblib.load("model/model.pkl")
 # ✅ Input schema (must match your dataset features)
@@ -38,6 +36,5 @@ def predict(data: Candidate):
             "confidence": round(probability * 100, 2),
             "recommendation": "Hire" if prediction == 1 else "Reject"
         }
-
     except Exception as e:
         return {"error": str(e)}
