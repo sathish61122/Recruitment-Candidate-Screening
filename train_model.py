@@ -1,7 +1,7 @@
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
-import joblib
+import job
 df = pd.read_csv("candidates.csv")
 # Features & target
 X = df[['experience','test_score','interview_score']]
