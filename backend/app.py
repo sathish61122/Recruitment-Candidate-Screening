@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 import job
-import numpy as npss
+import numpy as np
 from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 app.add_middleware(
