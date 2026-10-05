@@ -4,6 +4,6 @@ function showToast(message) {
     toast.className = "show";
     setTimeout(() => {
         toast.className = "";
-    }, 3000);
+    }, 300);
 }
 console.log("Frontend Loaded");
